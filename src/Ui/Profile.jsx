@@ -29,7 +29,7 @@ export function Profile() {
             src={user?.image}
             className="object-cover"
           />
-          <Avatar.Fallback delayMs={600}>JD</Avatar.Fallback>
+          <Avatar.Fallback delayMs={600}>{user?.name.charAt(1)}</Avatar.Fallback>
         </Avatar>
       </Dropdown.Trigger>
       <Dropdown.Popover>

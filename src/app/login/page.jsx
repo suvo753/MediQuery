@@ -17,6 +17,19 @@ const merriWeather = Merriweather({
 });
 
 
+
+  const handleGoogleLogin=async()=>{
+   const {data,error} = await authClient.signIn.social({
+    provider: "google",
+  });
+
+}
+
+  
+  
+  
+
+
 const handleLogin=async(e)=>{
     e.preventDefault();
 
@@ -85,7 +98,7 @@ const LoginPage = () => {
           </form>
             <p className="text-black text-center">Or</p>
       
-          <button className="btn w-full bg-white text-black mt-2">
+          <button onClick={handleGoogleLogin} className="btn w-full bg-white text-black mt-2">
             <FaGoogle />
             Continue With Google
           </button>
