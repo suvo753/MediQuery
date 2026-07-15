@@ -7,34 +7,28 @@ const TutorCard = ({tutor}) => {
     return (
         <Card className=" container mx-auto flex justify-center items-center w-full bg-shadow-300 shadow-lg drop-shadow-amber-50-100 bg-white  rounded-xl p-4 ">
 
-            <div>
-            <Image
-            src={tutor?.photo}
-            width={100}
-            height={200}          
-            alt="Tutor"
-            className="rounded-full"
-            />
-            </div>
+   <div className="relative w-full h-64 overflow-hidden rounded-2xl">
+  <Image
+    src={tutor?.photo}
+    alt={tutor?.tutorName}
+    fill
+    className="object-cover hover:scale-110 transition-transform duration-500"
+  />
+</div>
 
-            <div className="text-center space-y-1">
-                <h1 className="text-black font-bold text-xl">{tutor?.name}</h1>
-                <p className="text-black text-sm font-semibold">{tutor?.subject}</p>
-              <div className="flex items-center justify-center gap-1">
-                <FaRegStar className="text-yellow-500"/>
-                <p className="text-black text-sm text-center"> <span className="mr-3 font-bold"> 
-                    {tutor?.rating}
-                    </span>
-                
-                      ({tutor?.totalReviews})
-                           </p>
-              </div>
+            <div className="space-y-1">
+                <h1 className="text-black font-bold text-xl">{tutor?.tutorName}</h1>
+                <p className="text-black text-sm">{tutor?.subject}</p>
+          
+                <p className="text-black text-sm "> Available  {tutor?.availableTime}</p>
+                <p className="text-black text-sm ">Session Start Date :   {tutor?.sessionStartDate}</p>
 
-              <h1 className="text-black font-bold mt-5">  ${tutor?.price} / Session</h1>
+
+              <h1 className="text-black font-bold mt-5"> Fee :  ${tutor?.hourlyFee}</h1>
 
 
               
-                <button className=' mt-1 btn rounded-xs drop-shadow-amber-50 bg-blue-500 border-none text-white '> Book Session  </button>
+                <button className=' mt-1 w-full btn rounded-xs drop-shadow-amber-50 bg-blue-500 border-none text-white '> Book Session  </button>
             </div>
 
         </Card>

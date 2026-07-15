@@ -1,18 +1,10 @@
-import { tutors } from "@/lib/data";
+import { tutorsLimit } from "@/lib/data";
 import TutorCard from "@/Ui/TutorCard";
 import Link from "next/link";
-
-
-
-
 const AvailableTutor = async () => {
 
 
-const tutor = await tutors();
-
-
-
-
+const tutor = await tutorsLimit();
     return (
         <div className="container mx-auto space-y-3">
 
@@ -26,12 +18,11 @@ const tutor = await tutors();
             </div>
 
 
-            <div className=" grid md:grid-cols-3 gap-10 p-20">
+            <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-20">
                 {
-                    tutor.slice(0,6).map(tutor=> <TutorCard key={tutor._id} tutor={tutor}/>)
+                    tutor.map(tutor=> <TutorCard key={tutor._id} tutor={tutor}/>)
                 }
-
-
+                
 
             </div>
             
