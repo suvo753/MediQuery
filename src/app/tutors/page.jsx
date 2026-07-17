@@ -1,5 +1,4 @@
 import { tutors } from "@/lib/data";
-import InputData from "@/Ui/InputData";
 import TutorCard from "@/Ui/TutorCard";
 
 

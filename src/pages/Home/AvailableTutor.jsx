@@ -22,8 +22,6 @@ const tutor = await tutorsLimit();
                 {
                     tutor.map(tutor=> <TutorCard key={tutor._id} tutor={tutor}/>)
                 }
-                
-
             </div>
             
         </div>

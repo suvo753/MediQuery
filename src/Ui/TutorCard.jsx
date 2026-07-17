@@ -1,9 +1,9 @@
 import { Button, Card } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaRegStar } from "react-icons/fa";
 
 const TutorCard = ({tutor}) => {
-    console.log(tutor, "card ");
     return (
         <Card className=" container mx-auto flex justify-center items-center w-full bg-shadow-300 shadow-lg drop-shadow-amber-50-100 bg-white  rounded-xl p-4 ">
 
@@ -27,8 +27,11 @@ const TutorCard = ({tutor}) => {
               <h1 className="text-black font-bold mt-5"> Fee :  ${tutor?.hourlyFee}</h1>
 
 
-              
+              <Link href={`/tutors/${tutor?._id}`}>
                 <button className=' mt-1 w-full btn rounded-xs drop-shadow-amber-50 bg-blue-500 border-none text-white '> Book Session  </button>
+              
+              </Link>
+              
             </div>
 
         </Card>

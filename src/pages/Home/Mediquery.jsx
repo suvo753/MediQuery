@@ -94,7 +94,7 @@ const MediQuery = () => {
                 <div className=" text-center grid md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
 
 
-                <div className="space-y-4 shadow-2xl text-center px-4 py-8 rounded-xl ">
+                <div className="space-y-4 shadow-xl  text-center px-4 py-8 rounded-xl ">
                     
 
                     <h1 className="text-2xl font-bold">01</h1>
