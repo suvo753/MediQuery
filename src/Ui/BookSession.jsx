@@ -13,6 +13,10 @@ const user = session?.user;
 
 const tutorId = tutorDetailsData?._id;
 
+const seat = tutorDetailsData?.totalSlots;
+
+
+
 console.log(tutorId);
 
 
@@ -82,6 +86,14 @@ const handleSubmit = async (e) => {
 }
 
   return (
+
+    <div>
+
+      {
+
+        seat === 0 ? <button className="btn" onClick={()=> toast.error('Session Seat not Available')}> Book Session </button> :
+
+        
     <Modal>
       <Button variant="secondary" className={'rounded-none btn '}>Book Session</Button>
       <Modal.Backdrop>
@@ -131,5 +143,13 @@ const handleSubmit = async (e) => {
         </Modal.Container>
       </Modal.Backdrop>
     </Modal>
+      
+
+
+
+      }
+
+    </div>
+
   );
 }

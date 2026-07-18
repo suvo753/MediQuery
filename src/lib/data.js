@@ -27,3 +27,12 @@ export const tutorsDetails = async(id)=> {
 
 
 }
+
+
+export const MyBookedSession = async(userID)=> {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-booking-tutors/${userID}`);
+    console.log(res);
+    const data = await res.json();
+    return data ;
+}

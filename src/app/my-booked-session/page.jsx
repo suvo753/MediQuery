@@ -1,7 +1,28 @@
+import { auth } from "@/lib/auth";
+import { MyBookedSession } from "@/lib/data";
 import { Table } from "@heroui/react";
+import { headers } from "next/headers";
+import { MdCancel } from "react-icons/md";
 
 
-const page = () => {
+const page = async() => {
+
+
+  const session = await auth.api.getSession({
+    headers: await headers() 
+})
+
+
+const userID = session?.user?.id;
+
+
+const bookedData = await MyBookedSession(userID);
+
+console.log(bookedData);
+
+
+
+
     return (
         <div className="container mx-auto mt-10">
       <Table>
@@ -17,14 +38,48 @@ const page = () => {
             <Table.Column>Cancel</Table.Column>
           </Table.Header>
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>Kate Moore</Table.Cell>
-              <Table.Cell>CEO</Table.Cell>
-              <Table.Cell>Active</Table.Cell>
-              <Table.Cell>kate@acme.com</Table.Cell>
-              <Table.Cell>kate@acme.com</Table.Cell>
-              <Table.Cell>kate@acme.com</Table.Cell>
+
+            {
+              bookedData.map(tutor=>
+              <Table.Row key={tutor._id}>
+              <Table.Cell>{tutor.name}</Table.Cell>
+              <Table.Cell>{tutor.phone}</Table.Cell>
+              <Table.Cell>{tutor.tutorName}</Table.Cell>
+              <Table.Cell>{tutor.email}</Table.Cell>
+
+              {
+                tutor.status === 'Confirmed'? 
+
+             
+                  
+                <Table.Cell className={'text-green-500'}
+                >{tutor.status}</Table.Cell>
+                :
+                <Table.Cell className={'text-red-500'}
+                >{tutor.status}</Table.Cell> 
+                
+              }
+             
+             
+             
+              <Table.Cell>
+                {
+                  tutor.status === 'Confirmed'? 
+                  <button className="btn">
+                    <MdCancel />
+                  </button>
+                  :
+                  <button  className="btn btn-disabled opacity-50 cursor-not-allowed">
+                <MdCancel />
+                </button>
+                }
+
+       
+              </Table.Cell>
             </Table.Row>
+            
+          )
+            }
 
 
           </Table.Body>
