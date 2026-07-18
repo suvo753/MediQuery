@@ -1,5 +1,6 @@
 import { auth } from "@/lib/auth";
 import { MyBookedSession } from "@/lib/data";
+import CancelButton from "@/Ui/CancelButton";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 import { MdCancel } from "react-icons/md";
@@ -65,11 +66,10 @@ console.log(bookedData);
               <Table.Cell>
                 {
                   tutor.status === 'Confirmed'? 
-                  <button className="btn">
-                    <MdCancel />
-                  </button>
+
+                  <CancelButton tutor={tutor} />
                   :
-                  <button  className="btn btn-disabled opacity-50 cursor-not-allowed">
+                <button  className="btn btn-disabled opacity-50 cursor-not-allowed">
                 <MdCancel />
                 </button>
                 }
