@@ -4,12 +4,30 @@ import { EditIcon } from "lucide-react";
 
 export function EditData({tutor}) {
 
-  const handleSubmit =(e)=>{
+  const useId  = tutor?._id;
+
+  console.log(useId);
+
+  const handleSubmit = async(e)=>{
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors/${useId}`,{
+      method:'PATCH',
+      headers:{
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+
+    const result = await res.json();
+    console.log(result);
+
+
+
   }
   return (
     <Modal>
@@ -29,7 +47,7 @@ export function EditData({tutor}) {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
                     <div className="flex justify-between gap-4">
-                   <TextField defaultValue={tutor?.tutorName} className="w-full" name="name" type="text" variant="secondary">
+                   <TextField defaultValue={tutor?.tutorName} className="w-full" name="tutorName" type="text" variant="secondary">
                     <Label>Tutor Name</Label>
                     <Input  />
                   </TextField>
@@ -147,7 +165,7 @@ export function EditData({tutor}) {
             </div>
 
 
-                    <TextField  fullWidth name="experience">
+                    <TextField defaultValue={tutor?.experience} fullWidth name="experience">
                     <Label>Experience</Label>
                     <Input className={`border border-[#e7dddd] w-full max-h-28`} placeholder="3 Years Teaching Experience" />
                   </TextField>
