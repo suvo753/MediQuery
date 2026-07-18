@@ -1,10 +1,9 @@
 import { auth } from "@/lib/auth";
+import DeleteData from "@/Ui/DeleteData";
+import { EditData } from "@/Ui/EditData";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
-import { MdDelete, MdModeEdit } from "react-icons/md";
-
-
-
+import { MdModeEdit } from "react-icons/md";
 const MyTutor = async () => {
 
 const session = await auth.api.getSession({
@@ -20,6 +19,22 @@ console.log(session);
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors/${userId}`);
   const data = await res.json();
   console.log(data);
+
+
+  const handleDelete=async()=>{
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors/${userId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      }
+    });
+
+    const data = await res.json();
+    console.log(data);
+
+
+  }
 
 
 
@@ -54,8 +69,9 @@ console.log(session);
               <Table.Cell>{tutor.totalSlots}</Table.Cell>
               <Table.Cell>{tutor.sessionStartDate}</Table.Cell>
               <Table.Cell className={'flex items-center'}>
-                <MdDelete className="w-[70px] h-[20px] hover:text-red-500 cursor-pointer"/>
-                <MdModeEdit className="w-[70px] h-[20px] mr-30 hover:text-red-500 cursor-pointer"/>
+               <DeleteData userId={tutor._id}/>
+               <EditData tutor={tutor}/>
+
 
               </Table.Cell>
             </Table.Row>)
