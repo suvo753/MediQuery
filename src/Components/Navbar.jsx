@@ -37,7 +37,7 @@ const Navbar = () => {
         <MyNavbar path={'/tutors'}><li>Tutors</li> </MyNavbar>
         <MyNavbar path={'/add-tutors'}><li>Add Tutors </li> </MyNavbar>
         <MyNavbar path={'/my-tutor'}><li>My Tutors</li> </MyNavbar>
-        <MyNavbar path={'/mybookedsession'}><li>My Booked Session</li> </MyNavbar>
+        <MyNavbar path={'/my-booked-session'}><li>My Booked Session</li> </MyNavbar>
         
         </ul>
         : 
@@ -68,7 +68,7 @@ const Navbar = () => {
         <MyNavbar path={'/tutors'}><li>Tutors</li> </MyNavbar>
         <MyNavbar path={'/add-tutors'}><li>Add Tutors </li> </MyNavbar>
         <MyNavbar path={'/my-tutor'}><li>My Tutors</li> </MyNavbar>
-        <MyNavbar path={'/mybookedsession'}><li>My Booked Session</li> </MyNavbar>
+        <MyNavbar path={'/my-booked-session'}><li>My Booked Session</li> </MyNavbar>
         
         </ul>
         : 

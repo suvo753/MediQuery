@@ -1,4 +1,5 @@
 import { tutorsDetails } from '@/lib/data';
+import { BookSession } from '@/Ui/BookSession';
 import Image from 'next/image';
 import React from 'react';
 
@@ -30,7 +31,7 @@ const tutorDetails = async ({params}) => {
 
 
 
-            <div className='p-3 '>
+            <div className='p-3'>
                 <h1 className=' text-2xl font-bold'>{tutorDetailsData?.tutorName}</h1>
                 <p>{tutorDetailsData?.subject}</p>
                 <p className='font-bold'> <span>Institute : </span> {tutorDetailsData?.institution}</p>
@@ -41,7 +42,13 @@ const tutorDetails = async ({params}) => {
                 <p> <span className='font-bold'>hourly Fee : </span>{tutorDetailsData?.hourlyFee}</p>
                 <p> <span className='font-bold'> Remaining Slots : </span>{tutorDetailsData?.totalSlots}</p>
                 <p> <span className='font-bold'>Session Start Date : </span>{tutorDetailsData?.sessionStartDate}</p>
-                <button className='btn mt-3 '> Book Session </button>
+              
+              <div className='mt-3'>
+
+               <BookSession  tutorDetailsData={tutorDetailsData}/>
+              </div>
+              
+
             </div>
 
 

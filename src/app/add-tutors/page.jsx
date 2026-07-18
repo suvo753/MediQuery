@@ -19,9 +19,33 @@ const addTutors = () => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
+    if(
+
+    !data.tutorName ||
+    !data.photo ||
+    !data.subject ||
+    !data.availableTime ||
+    !data.hourlyFee ||
+    !data.totalSlots ||
+    !data.sessionStartDate ||
+    !data.institution ||
+    !data.experience ||
+    !data.location ||
+    !data.teachingMode
+
+
+    ){
+
+      toast.error('Please fill all the fields');
+      return;
+
+    }
+
 
     const formAllData = {
       ...data,
+  hourlyFee: Number(data.hourlyFee),
+  totalSlots: Number(data.totalSlots),
       userId:userId
 
     }
