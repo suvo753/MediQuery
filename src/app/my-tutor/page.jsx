@@ -10,6 +10,10 @@ const session = await auth.api.getSession({
     headers: await headers() 
 })
 
+   const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+
 const user = session?.user;
 const userId = user?.id;
 

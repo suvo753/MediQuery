@@ -1,14 +1,18 @@
+import { auth } from "@/lib/auth";
 import { tutors } from "@/lib/data";
 import TutorCard from "@/Ui/TutorCard";
+import { headers } from "next/headers";
 
 
 
 const TutorsPage = async() => {
 
+
+
+
+    
     const data = await tutors();
-
     console.log(data);
-
     return (
         <div className="container mx-auto space-y-3">
 

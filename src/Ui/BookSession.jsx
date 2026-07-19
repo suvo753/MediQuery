@@ -2,10 +2,16 @@
 
 import { authClient } from "@/lib/auth-client";
 import {Button, Input, Label, Modal, Surface, TextField} from "@heroui/react";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-export function BookSession({tutorDetailsData}) {
+export  function BookSession({tutorDetailsData}) {
+
+
+  const router = useRouter();
+
+
+
 
 const { data: session,} = authClient.useSession() 
         
@@ -21,8 +27,9 @@ console.log(tutorId);
 
 
 const handleSubmit = async (e) => {
+  e.preventDefault();
+  
 
-    e.preventDefault();
 
     const today = new Date();
     today.setHours(0,0,0,0);
@@ -42,9 +49,12 @@ const handleSubmit = async (e) => {
 
 
 
+
+
+
+
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
 
 
     if(!data.phone){
@@ -61,10 +71,15 @@ const handleSubmit = async (e) => {
     }
 
 
+    const {data:tokenData} = await authClient.token();
+
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-booking-tutors/${tutorId}`,{
       method: "PATCH",
       headers:{
+        authorization: `Bearer ${tokenData?.token} `,
         "content-type": "application/json"
+        
       },
       body: JSON.stringify(dataToSend)
     })
@@ -75,7 +90,7 @@ const handleSubmit = async (e) => {
     if(result){
 
       toast.success("Booking Successful!");
-      redirect("/my-tutor");
+      router.push("/my-booked-session");
 
     }
 

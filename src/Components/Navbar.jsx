@@ -8,11 +8,15 @@ import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
 
+   
+
     const { data: session,} = authClient.useSession() 
     
     const user = session?.user;
 
     return (
+
+      
 
   <nav className="rounded-xs">
 

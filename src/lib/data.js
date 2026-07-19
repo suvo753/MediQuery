@@ -20,10 +20,15 @@ export const tutorsLimit = async () => {
 }
 
  
-export const tutorsDetails = async(id)=> {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`);
+export const tutorsDetails = async(id,token)=> {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors/${id}`,{
+        headers:{
+            authorization:`Bearer ${token}`
+        }
+    });
     const data = await res.json();
-    return data ;
+
+    return data;
 
 
 }

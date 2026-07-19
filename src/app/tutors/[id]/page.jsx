@@ -1,12 +1,27 @@
+import { auth } from '@/lib/auth';
 import { tutorsDetails } from '@/lib/data';
 import { BookSession } from '@/Ui/BookSession';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
 const tutorDetails = async ({params}) => {
     const {id} = await params;
-    const tutorDetailsData = await tutorsDetails(id);
+    
+
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+
+
+
+
+
+    const tutorDetailsData = await tutorsDetails(id,token);
     console.log(tutorDetailsData);
+    console.log(token);
+
+
 
 
     return (
