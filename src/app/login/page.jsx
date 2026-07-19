@@ -79,16 +79,16 @@ const LoginPage = () => {
               <TextField className="w-full" name="email" type="email">
                 <Label>Email</Label>
                 <Input
-                  className="border border-black"
+                  className="border border-black w-full"
                   placeholder="Enter your email"
                 />
               </TextField>
    
       
       
-            <TextField fullWidth  isRequired name="password" type="password">
+            <TextField className={'w-full'}   isRequired name="password" type="password">
               <Label>Password</Label>
-              <Input  className="border border-black" />
+              <Input  className="border border-black w-full" />
              
             </TextField>
             <button className="btn w-full bg-black text-white">

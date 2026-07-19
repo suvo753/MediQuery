@@ -75,7 +75,7 @@ if(data){
         <TextField className="w-full" name="name">
           <Label>Name</Label>
           <Input
-            className="border border-black"
+            className="border border-black w-full"
             placeholder="Enter your name"
           />
         </TextField>
@@ -85,7 +85,7 @@ if(data){
       <TextField className="w-full" name="imageUrl" type="text">
         <Label>Image Url </Label>
         <Input
-          className="border border-black"
+          className="border border-black w-full"
           placeholder="Enter your imageUrl"
         />
       </TextField>
@@ -93,7 +93,7 @@ if(data){
         <TextField className="w-full" name="email" type="email">
           <Label>Email</Label>
           <Input
-            className="border border-black"
+            className="border border-black w-full"
             placeholder="Enter your email"
           />
         </TextField>
@@ -102,7 +102,7 @@ if(data){
 
       <TextField fullWidth  isRequired name="password" type="password">
         <Label>Password</Label>
-        <Input />
+        <Input className={'w-full'} />
        
       </TextField>
 
