@@ -29,7 +29,7 @@ export function SearchButton() {
 
   return (
 
-    <div className="flex justify-between items-center container mx-10">
+    <div className="flex justify-between items-center container md:mx-10">
 
 
       <div>
@@ -59,7 +59,7 @@ export function SearchButton() {
       </div>
 
 
-      <div>
+      <div className="mt-10">
 
 
     <button onClick={handleFilter} className="btn btn-secondary">Filter</button>
