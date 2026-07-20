@@ -6,6 +6,13 @@ import { headers } from "next/headers";
 import { MdCancel } from "react-icons/md";
 
 
+export const metadata = {
+  title: " My Booked Session | Tutor Booking  ",
+  description: "My Booked Session ",
+};
+
+
+
 const page = async() => {
 
 

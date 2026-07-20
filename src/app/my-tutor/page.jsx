@@ -4,6 +4,20 @@ import { EditData } from "@/Ui/EditData";
 import { Table } from "@heroui/react";
 import { headers } from "next/headers";
 import { MdModeEdit } from "react-icons/md";
+
+
+
+export const metadata = {
+  title: " My  Tutor | Tutor Booking  ",
+  description: "Tutor Booking ",
+};
+
+
+
+
+
+
+
 const MyTutor = async () => {
 
 const session = await auth.api.getSession({

@@ -5,6 +5,14 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
+
+
+export const metadata = {
+  title: "Tutor Details | Tutor Booking ",
+  description: "Tutor Booking",
+};
+
+
 const tutorDetails = async ({params}) => {
     const {id} = await params;
     

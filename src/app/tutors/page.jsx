@@ -4,6 +4,14 @@ import TutorCard from "@/Ui/TutorCard";
 
 
 
+export const metadata = {
+  title: "Tutor | Tutor Booking ",
+  description: "Tutor Booking",
+};
+
+
+
+
 
 const TutorsPage = async({searchParams}) => {
     const sParams = await searchParams;
