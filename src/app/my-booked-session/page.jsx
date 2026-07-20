@@ -13,11 +13,15 @@ const page = async() => {
     headers: await headers() 
 })
 
+    const {token} = await auth.api.getToken({
+        headers: await headers()
+    })
+
 
 const userID = session?.user?.id;
 
 
-const bookedData = await MyBookedSession(userID);
+const bookedData = await MyBookedSession(userID,token);
 
 console.log(bookedData);
 
@@ -26,6 +30,11 @@ console.log(bookedData);
 
     return (
         <div className="container mx-auto mt-10">
+
+          {bookedData.length === 0 ? <h1 className="text-center text-2xl font-bold text-black">You have not booked any tutors yet</h1> : 
+          
+          
+
       <Table>
           
       <Table.ScrollContainer>
@@ -86,6 +95,13 @@ console.log(bookedData);
         </Table.Content>
       </Table.ScrollContainer>
     </Table>
+          
+          }
+
+
+
+
+
         </div>
     );
 };

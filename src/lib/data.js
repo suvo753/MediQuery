@@ -1,13 +1,10 @@
-export const tutors = async () => {
+export const tutors = async (search = "") => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/tutors?search=${search}`
+  );
 
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`);
-    const data = await res.json();
-
-    return data;
-
-}
-
+  return res.json();
+};
 
 
 export const tutorsLimit = async () => {
@@ -34,9 +31,13 @@ export const tutorsDetails = async(id,token)=> {
 }
 
 
-export const MyBookedSession = async(userID)=> {
+export const MyBookedSession = async(userID,token)=> {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-booking-tutors/${userID}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-booking-tutors/${userID}`,{
+        headers:{
+            authorization:`Bearer ${token}`
+        }
+    });
     console.log(res);
     const data = await res.json();
     return data ;
