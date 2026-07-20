@@ -58,7 +58,10 @@ const Navbar = () => {
       }
       </ul>
     </div>
-    <Link href={'/'} className="btn btn-ghost font-bold  bg-white text-blue-500 text-xl"> <span> <IoBookSharp/> </span> MediQueue</Link>
+    <Link href={'/'} className="btn btn-ghost font-bold  bg-white text-blue-500 text-xl flex justify-start">
+    
+     <span><IoBookSharp/>
+     </span> MediQueue</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
 
@@ -98,10 +101,9 @@ const Navbar = () => {
 
       {user? <Profile/> : 
       
-      <ul className="flex justify-between items-center gap-1 md:gap-3">
+      <ul className="flex justify-between items-center gap-1 mr-2 md:gap-3 ">
 
       <Link className="btn" href={'/login'}><li>Login</li></Link>
-      <Link className="btn" href={'register'}><li>Reginter</li></Link>
       
       </ul>
       
