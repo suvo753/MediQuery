@@ -33,8 +33,6 @@ const session = await auth.api.getSession({
 
 const user = session?.user;
 const userId = user?.id;
-
-console.log(session);
   
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors/${userId}`, {
@@ -44,22 +42,6 @@ console.log(session);
   });
   const data = await res.json();
   console.log(data);
-
-
-  const handleDelete=async()=>{
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-tutors/${userId}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      }
-    });
-
-    const data = await res.json();
-    console.log(data);
-
-
-  }
 
 
 
