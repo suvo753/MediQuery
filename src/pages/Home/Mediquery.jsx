@@ -1,6 +1,6 @@
 const MediQuery = () => {
     return (
-        <div className="text-center container  mx-auto ">
+        <div className="text-center container  mx-auto text-black">
 
             
 

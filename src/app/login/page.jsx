@@ -92,7 +92,7 @@ const LoginPage = () => {
       
             <TextField className={'w-full'}   isRequired name="password" type="password">
               <Label>Password</Label>
-              <Input  className="border border-black w-full" />
+              <Input  className="border border-black w-full" placeholder="Enter your password" />
              
             </TextField>
             <button className="btn w-full bg-black text-white">

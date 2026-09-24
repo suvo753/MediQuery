@@ -22,6 +22,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      className="light"
+      data-theme="light"
+      suppressHydrationWarning
     >
       <body className={`bg-white ${merriWeather.className}`}>
         <Navbar/>

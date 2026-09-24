@@ -102,7 +102,7 @@ if(data){
 
       <TextField fullWidth  isRequired name="password" type="password">
         <Label>Password</Label>
-        <Input className={'w-full'} />
+        <Input className={'w-full'} placeholder="Enter your password" />
        
       </TextField>
 
